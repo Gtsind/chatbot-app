@@ -12,7 +12,7 @@ module.exports = [
     reply: "I'm skilled in JavaScript, Angular, Node.js and SQL."
   },
   {
-    keywords: ["study", "education"],
+    keywords: ["study", "education", "school"],
     reply: "I graduated from University of Crete with a degree in Economics."
   },
   {

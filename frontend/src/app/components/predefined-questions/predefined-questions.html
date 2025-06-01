@@ -1,0 +1,20 @@
+<!-- <button type="button" class="bg-blue-400" (click)="toggleShowQuestions()">Click me</button> -->
+
+<button 
+  class="bg-blue-500 text-white p-5 rounded-full shadow-xl"
+  (click)="toggleShowQuestions()"
+  
+  >
+  {{ isToggled ? 'Hide questions' : 'Show questions'}}
+</button>
+
+
+<div *ngIf="isToggled" class="flex flex-col gap-2 mt-3">
+  @for (question of questions; track question) {
+    <div class="flex">
+      <button class="bg-gray-400 text-white p-5 rounded-full shadow-xl" (click)="asked.emit(question)">
+        {{ question }}
+      </button>
+    </div>
+  }
+</div>

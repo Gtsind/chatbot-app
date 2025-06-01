@@ -1,0 +1,21 @@
+<input
+  #userInput
+  type="text"
+  class="bg-white rounded-full p-3 w-100 shadow-xl"
+  placeholder="Ask me anything..."
+  (keydown.enter) ="onSend(userInput)"
+  [disabled]="disabled"
+  [ngClass]="{
+    'disabled': disabled
+    }"
+  />
+<button 
+  class="bg-blue-500 text-white w-15 rounded-full -ml-15 shadow-xl h-12"
+  (click)="onSend(userInput)"
+  [disabled]="disabled"
+  [ngClass]="{
+    'disabled': disabled
+    }"
+  >
+  Send
+</button>

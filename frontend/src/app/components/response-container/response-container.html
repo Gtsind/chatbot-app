@@ -1,0 +1,29 @@
+<div class="rounded-lg relative">
+
+    @if (loading) {
+        <div class="flex justify-start absolute bottom-4 left-8">
+            <div class='flex space-x-1 mt-5 justify-center items-center'>
+                <span class='sr-only'>Loading...</span>
+                <div class='h-2 w-2 bg-black rounded-full animate-bounce [animation-delay:-0.3s]'></div>
+                <div class='h-2 w-2 bg-black rounded-full animate-bounce [animation-delay:-0.15s]'></div>
+                <div class='h-2 w-2 bg-black rounded-full animate-bounce'></div>
+            </div>
+        </div>
+       }
+
+    <div #messageContainer class="bg-white rounded-lg p-8 h-150 overflow-auto">
+        @for (message of messages; track message) {
+          <div class="flex mb-4">
+            <div [ngClass]="{
+                'bg-gray-200 mr-auto text-black': message.source === 'chatbot',
+                'bg-blue-500 ml-auto text-white': message.source === 'user'
+                }"
+                class="p-4 rounded-lg shadow-xl max-w-xs">
+                {{ message.message }}
+            </div>
+          </div>
+        }
+
+       
+    </div>
+</div>

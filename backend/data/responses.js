@@ -12,7 +12,7 @@ const responseMap = [
   {
     keywords: ["skills", "expertise"],
     reply:
-      "I'm skilled in JavaScript, Angular, Node.js, MongoDB, and SQL. I also have experience with RESTful APIs, authentication, and front-end/backend integration.",
+      "I'm skilled in JavaScript, Angular, Node.js, Java, MongoDB, and SQL. I also have experience with RESTful APIs, authentication, and front-end/backend integration.",
   },
   {
     keywords: ["study", "education", "school"],

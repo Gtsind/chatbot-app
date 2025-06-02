@@ -4,8 +4,8 @@
   "description": "Chatbot application with Angular frontend and Node.js backend",
   "scripts": {
     "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\"",
-    "start:backend": "cd backend && npm install && npm run start",
-    "start:frontend": "cd frontend && npm install && npm run start",
+    "start:backend": "cd backend && npm run start",
+    "start:frontend": "cd frontend && npm run start",
     "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install",
     "cleanup": "rm -rf node_modules && cd backend && rm -rf node_modules && cd ../frontend && rm -rf node_modules"
   },

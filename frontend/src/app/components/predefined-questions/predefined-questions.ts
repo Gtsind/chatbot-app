@@ -8,13 +8,12 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrl: './predefined-questions.css'
 })
 export class PredefinedQuestions {
-@Input() questions: string [] = [];
-@Input() disabled: boolean = false;
-@Output() asked = new EventEmitter<string>();
-isToggled: boolean = false;
+  @Input() questions: string [] = [];
+  @Input() disabled: boolean = false;
+  @Output() asked = new EventEmitter<string>();
+  isToggled: boolean = false;
 
-toggleShowQuestions() {
-  this.isToggled = !this.isToggled;
-}
-
+  toggleShowQuestions() {
+    this.isToggled = !this.isToggled;
+  }
 }

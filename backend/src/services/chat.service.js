@@ -1,6 +1,7 @@
 const {
   findReply,
   validatePrompt,
+  findReplyV2,
 } = require("../functions/chat/chat.functions");
 
 function sendResponse(req, res) {
@@ -15,7 +16,8 @@ function sendResponse(req, res) {
 
   console.log("Request prompt: ", userPromt);
 
-  const reply = findReply(userPromt);
+  // const reply = findReply(userPromt);
+  const reply = findReplyV2(userPromt);
   res.status(200).json({ reply });
 }
 

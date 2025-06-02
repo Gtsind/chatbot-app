@@ -8,7 +8,9 @@ describe("POST /chat", () => {
       .send({ prompt: "Tell me about yourself" });
 
     expect(res.statusCode).toBe(200);
-    expect(res.body.reply).toBe("Hi, I'm George!");
+    expect(res.body.reply).toBe(
+      "Hi, I'm George Tsindaris. I'm transitioning into software development with a focus on full-stack web applications."
+    );
   });
 
   it("should return a response about projects", async () => {

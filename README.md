@@ -2,29 +2,35 @@
 
 A simple chatbot web application where users can ask questions and receive responses based on predefined keyword mappings. Built with Angular/TailwindCSS on the frontend and Node.js/Express on the backend.
 
-1. On *load* the user is presented with an input to type their own question AND with a button (bubble) w/ label "Show Questions".
-   - Clicking on "Show questions" presents the user with a set of predefined ones, clicking on one of them will submit the given question to the server-side to be answered
+1. On _load_ the user is presented with an input to type their own question AND with a button (bubble) w/ label "Show Questions".
+   - Clicking on "Show questions" presents the user with a set of predefined ones, clicking on one of them will submit the given question to the server-side to be answered.
    - Typing and hitting "Send" will act the same.
-2. When a question has been sent, the user can see the related question on their message-list screen, and a loading animation until the response has arrived. Additionally, the input field is disabled (along with the send button - look at future work for more related to this).
-3. When a question arrives on the server side, we are looking for specific keywords and based on the matched ones we determine which predefined answer should be sent as a response.
-4. The reponse arrives in the angular app, and at that point is added to the messages array and displayed to the user.
-5. The view resets and awaits for a new question (manually typed or selected from predefined ones). 
+2. When a question has been sent, the user can see the related question on their message-list screen, in addition to a loading animation until the response has arrived. Additionally, the input field is disabled (along with the send button - look at future work for more related to this).
+3. When a question arrives on the server side, we are looking for specific keywords and, based on the matched ones, we determine which predefined answer should be sent as a response.
+4. The reponse arrives in the angular app and at that point is added to the messages array and displayed to the user.
+5. The view resets and awaits for a new question (manually typed or selected from predefined ones).
 
+Note: Backend logic for determining best matches has been reworked. A scoring system is now used, based on how many associated keywords for a chatbot reply appear on a given user input.
 
-Note: a fake delay has been added in the angular app, when processing the server-response, to give the user the confidence that we are actually acting on the related information (along with demonstrating the loading handling e.g. loading dots, disabling input etc.)
+Note: a fake delay has been added in the angular app, when processing the server-response, to give the user the belief that we are actually acting on the related information (along with demonstrating the loading handling e.g. loading dots, disabling input etc.)
 
 ## How to run
 
 1. **Install all dependencies:**
-   ```bash
-   npm run install:all
-   ```
+
+- Node.js v22.15.0 or higher required
+
+  ```bash
+  npm run install:all
+  ```
 
 2. **Set up environment variables (in reality this is optional, there are default fallbacks):**
+
    ```bash
    # In the backend directory
    cp .env.example .env
    ```
+
    This will create a `.env` file with the necessary environment variables. Make sure to update any values if needed.
 
 3. **Start both frontend and backend servers:**
@@ -33,16 +39,17 @@ Note: a fake delay has been added in the angular app, when processing the server
    ```
 
 The application will be available at:
+
 - Frontend: [http://localhost:4200](http://localhost:4200)
 - Backend: [http://localhost:3001](http://localhost:3001)
 
 ### Additional Commands
 
 - **Clean up all node_modules:**
-   ```bash
-   npm run cleanup
-   ```
-   This will remove all `node_modules` directories from the root, backend, and frontend folders. Useful for doing a clean reinstall of dependencies.
+  ```bash
+  npm run cleanup
+  ```
+  This will remove all `node_modules` directories from the root, backend, and frontend folders. Useful for doing a clean reinstall of dependencies.
 
 ## How to test
 
@@ -62,9 +69,7 @@ Tests cover:
 - Response matching
 - Error handling for invalid/missing inputs
 
-
 ### File structure (simplified)
-
 
 ```
 chatbot-app
@@ -157,18 +162,17 @@ chatbot-app
 
 ### Environmental Variables
 
-Frontend: 
+Frontend:
 
-| Name | Description  |
-| ------- | --- |
-| `apiURL` | local server uri|
+| Name     | Description      |
+| -------- | ---------------- |
+| `apiURL` | local server uri |
 
-Backend: 
+Backend:
 
-| Name | Description  |
-| ------- | --- |
-| `PORT` | local server port|
-
+| Name   | Description       |
+| ------ | ----------------- |
+| `PORT` | local server port |
 
 ## Optimization
 
@@ -177,14 +181,15 @@ Backend:
 - Implemented auto-scroll on new messages for a better UX
 - Simulated bot response by adding typing indicators and small delay
 - Button toggles recommended questions for better user interaction
+- Input field refocuses shortly after receiving a message for smoother user experience
 
 ## Future Work
 
 - Add persistent chat history, make past conversations available for users to access them at a later stage
-   - This requires routes & functions on the server-side, along with a DB to store conversations (e.g. MongoDB)
+  - This requires routes & functions on the server-side, along with a DB to store conversations (e.g. MongoDB)
 - Implement authentication with Google login option and user profiles
 - Support richer content in messages
-- Probably add some kind of scoring related to determining which answer is best suited for the given question, e.g. adding weights to keywords
+- Further improve backend logic on determining which answer is better suited for a given question (e.g adding weights to keywords)
 - Write unit and integration tests for the Angular app
 - Better error handling
 - Add a cancel/stop button along with the "send button" in case the user wants to abort processing the current question and ask a new one

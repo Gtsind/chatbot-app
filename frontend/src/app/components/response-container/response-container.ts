@@ -21,5 +21,4 @@ export class ResponseContainer implements AfterViewChecked {
     const element = this.messageContainer.nativeElement;
     element.scrollTop = element.scrollHeight;
   }
-
 }

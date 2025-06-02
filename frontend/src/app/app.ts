@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ViewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ResponseContainer } from "./components/response-container/response-container";
 import { UserInputComponent } from "./components/user-input-component/user-input-component";
@@ -21,10 +21,10 @@ const FAKE_DELAY = 2000;
 export class App {
   protected title = 'client-angular';
   questions: string[] = [];
-
   messages: IMessage[] = [];
-
   loading: boolean = false;
+
+  @ViewChild(UserInputComponent) userInputComponent!: UserInputComponent;
 
 
   //dependencies
@@ -37,6 +37,13 @@ export class App {
     });
   }
 
+  /*
+    This asynchronous function handles sending a user's message and displaying the chatbot's response:
+    Sets the loading state to true and pushes the user's message to the message array.
+    Sends the message to the chatbot service and waits for the response.
+    Then pushes the chatbot's message to the message list, resets the loading state to false and after
+    a short delay, refocuses the input field.
+  */
   async handleMessage(message: string) {
     this.loading = true;
     this.messages.push({message, source: 'user' });
@@ -51,5 +58,9 @@ export class App {
     }
     
     this.loading = false;
+
+    setTimeout(() => {
+      this.userInputComponent.focusInput();
+    }, 100);
   }
 }

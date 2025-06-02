@@ -10,7 +10,7 @@ const pq = [
   'Who are you?',
   'Which projects have you worked on?',
   'What are your skills?',
-  'Tell me about your education.',
+  'Tell me a fun fact!',
 ]
 
 @Injectable({

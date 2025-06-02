@@ -1,9 +1,12 @@
-const responseMap = require("../../../data/responses");
+const { responseMap, funFacts } = require("../../../data/responses");
 
 // This function takes a prompt as an argument, converts it to lower case, then compares it to every keyword in
 // responseMap and returns the reply if successful, or a fallback response if no match.
 function findReply(prompt) {
   const lower = prompt.toLowerCase();
+  if (lower === "tell me a fun fact!") {
+    return funFacts[Math.floor(Math.random() * funFacts.length)];
+  }
   for (let response of responseMap) {
     if (response.keywords.some((keyword) => lower.includes(keyword))) {
       return response.reply;

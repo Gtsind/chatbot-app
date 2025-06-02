@@ -1,5 +1,12 @@
-:host {
-  position: absolute;
-  top: 0;
-  left: 0;
+@media (min-width: 1024px) {
+  :host {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }

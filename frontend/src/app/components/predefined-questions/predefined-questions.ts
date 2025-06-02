@@ -9,6 +9,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class PredefinedQuestions {
 @Input() questions: string [] = [];
+@Input() disabled: boolean = false;
 @Output() asked = new EventEmitter<string>();
 isToggled: boolean = false;
 

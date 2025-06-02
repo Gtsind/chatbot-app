@@ -1,21 +1,23 @@
-<input
-  #userInput
-  type="text"
-  class="bg-white rounded-full p-3 w-100 shadow-xl"
-  placeholder="Ask me anything..."
-  (keydown.enter) ="onSend(userInput)"
-  [disabled]="disabled"
-  [ngClass]="{
-    'disabled': disabled
-    }"
+<div class="flex w-full gap-2">
+  <input
+    #userInput
+    type="text"
+    class="bg-white rounded-full p-2 sm:p-3 w-100 shadow-xl"
+    placeholder="Ask me anything..."
+    (keydown.enter) ="onSend(userInput)"
+    [disabled]="disabled"
+    [ngClass]="{
+      'disabled': disabled
+      }"
   />
-<button 
-  class="bg-blue-500 text-white w-15 rounded-full -ml-15 shadow-xl h-12"
-  (click)="onSend(userInput)"
-  [disabled]="disabled"
-  [ngClass]="{
-    'disabled': disabled
-    }"
+  <button 
+    class="cursor-pointer bg-blue-500 text-white px-4 sm:px-6 rounded-full shadow-xl h-10 sm:h-12 whitespace-nowrap"
+    (click)="onSend(userInput)"
+    [disabled]="disabled"
+    [ngClass]="{
+      'disabled': disabled
+      }"
   >
-  Send
-</button>
+    Send
+  </button>
+</div>

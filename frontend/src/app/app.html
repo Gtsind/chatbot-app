@@ -1,9 +1,9 @@
-<div class="flex flex-col bg-gradient-to-br from-slate-100 to-slate-400 min-h-screen py-10 px-10 gap-3">
+<div class="flex flex-col bg-gradient-to-br from-slate-100 to-slate-400 min-h-screen py-4 px-4 sm:py-10 sm:px-10 gap-3">
   <app-response-container [messages]="messages" [loading]="loading"></app-response-container>
   
-  <div class="p-4 rounded-lg flex relative justify-center mt-3">
+  <div class="p-2 sm:p-4 rounded-lg flex flex-col lg:flex-row relative justify-center mt-3 gap-3">
     <app-user-input-component [disabled]="loading" (messageSent)="handleMessage($event)"></app-user-input-component>
-    <app-predefined-questions (asked)="handleMessage($event)" [questions]="questions"></app-predefined-questions>
+    <app-predefined-questions [disabled]="loading" (asked)="handleMessage($event)" [questions]="questions"></app-predefined-questions>
   </div>
 
 </div>

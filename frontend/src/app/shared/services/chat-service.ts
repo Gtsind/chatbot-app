@@ -11,7 +11,6 @@ const pq = [
   'Which projects have you worked on?',
   'What are your skills?',
   'Tell me about your education.',
-  'What are your hobbies?'
 ]
 
 @Injectable({
